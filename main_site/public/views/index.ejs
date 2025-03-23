@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Tweeter</title>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="../css/style.css" />
+        <link rel="icon" href="../images/favicon.svg" />
+    </head>
+    <body>
+        <nav>
+            <a class="logo" href="/">
+                <img src="../images/tweeter.png" />
+                Tweeter
+            </a>
+            <button id="account-button" class="button">Account</button>
+            <div id="account-overlay" class="hidden">hi</div>
+        </nav>
+        <form class="create-post" method="post" action="./upload">
+            <% if (notice) { %>
+            <div class="notice">Hello</div>
+            <% } %>
+            <h2>Create Post:</h2>
+            <input
+                placeholder="Title"
+                autocomplete="none"
+                type="text"
+                name="title"
+                required
+            />
+            <textarea placeholder="Body" name="body" required></textarea>
+            <input class="button" type="submit" value="Submit" />
+        </form>
+
+        <main>
+            <% messages.forEach((message) => { %>
+            <div class="post">
+                <h2><%- message.title %></h2>
+                <p><%- message.body %></p>
+            </div>
+            <% }); %>
+        </main>
+        <script src="./js/main.js"></script>
+    </body>
+</html>

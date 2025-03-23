@@ -1,0 +1,11 @@
+services:
+    app:
+        container_name: XSS-Demo
+        image: XSS-Demo
+        restart: always
+        build:
+            context: ./main_site
+            dockerfile: Dockerfile
+            target: base
+        ports:
+            - "${PORT}:${PORT}"

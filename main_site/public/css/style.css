@@ -1,0 +1,148 @@
+/* General site styles */
+:root {
+    --black: #1e1e1e;
+    --white: #ffffff;
+    --off-white: #eceff1;
+    --blue: #1DA1F2;
+    --dark-blue: #026fb3;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 101vh;
+    overflow-x: hidden;
+
+    /* Font Styling */
+    font-family: Arial, sans-serif;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -ms-text-size-adjust: 100%;
+    -moz-osx-font-smoothing: grayscale;
+    font-synthesis: none !important;
+
+    ::placeholder {
+        font-family: Arial, sans-serif;
+
+        /* Weird Firefox Stuff */
+        opacity: 1;
+    }
+
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+/* Scrollbar style */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--blue);
+}
+
+/* Heading Bar */
+nav {
+    position: sticky;
+    top: 0;
+    display: flex;
+    align-items: center;
+    max-width: 800px;
+    width: 100vw;
+    padding: 10px;
+    background-color: var(--white);
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    font-size: 1.7rem;
+    color: var(--black);
+    text-decoration: none;
+    margin-right: auto;
+
+    img {
+        width: 48px;
+        height: 48px;
+        margin-right: 16px;
+        user-select: none;
+        -webkit-user-select: none;
+    }
+}
+
+/* Sidebar */
+.sidebar {
+
+}
+
+.button {
+    border: 0px;
+    border-radius: 20px;
+    background-color: var(--blue);
+    color: var(--white);
+    height: 35px;
+    width: 80px;
+    transition: 0.25s;
+}
+
+.button:hover {
+    transform: translateY(1px);
+    background-color: var(--dark-blue);
+    cursor: pointer;
+}
+
+/* Main Feed */
+.create-post {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    width: 100vw;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid var(--black);
+
+    input[type=text],
+    textarea {
+        border: 1px solid var(--black);
+        border-radius: 10px;
+        padding: 5px;
+        margin: 5px 0;
+        height: 25px;
+    }
+
+    textarea {
+        height: 60px;
+        resize: none;
+        margin-bottom: 10px;
+    }
+}
+
+.post {
+    background-color: var(--off-white);
+    border-radius: 15px;
+    padding: 15px;
+    max-width: 600px;
+    width: 100vw;
+    margin-bottom: 10px;
+}
