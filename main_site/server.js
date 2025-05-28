@@ -2,23 +2,28 @@
  * Main server for demo site
  */
 
-require("dotenv").config({ path: "../.env" });
-
 // Imports
-const express = require("express");
-const bodyParser = require("body-parser");
-const path = require("path");
+import express from "express";
+import bodyParser from "body-parser";
+import dotenv from "dotenv";
+import * as api from "./api.js";
+
+dotenv.config({ path: "../.env" });
+
 const app = express();
-const api = require("./api.js");
 
 // Setup middlware
 app.set("view engine", "ejs");
-app.set("views", path.join(__dirname, "public/views"));
-app.use(express.static(__dirname + "/public"));
+app.set("views", "./public/views");
+app.use(express.static("./public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Request Handling
 app.get("/", async (req, res) => {
+    let error = req.query.error;
+
+    console.log(error);
+
     try {
         const posts = await api.getPosts();
         console.log(posts);
@@ -32,10 +37,11 @@ app.get("/", async (req, res) => {
 app.post("/upload", async (req, res) => {
     const result = await api.submitPost(req.body);
 
+    // Redirect with error if applicable
     if (result) {
         res.redirect("/");
     } else {
-        // err out
+        res.redirect("/?error=400");
     }
 });
 

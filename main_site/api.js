@@ -1,10 +1,12 @@
 /**
- * Create psql connection.
- * Only use on server-side
+ * Functions for API to DB connections.
+ * See server.js for actual request handling
  */
 
-require("dotenv").config({ path: "../.env" });
-const postgres = require("postgres");
+import dotenv from "dotenv";
+import { SQL } from "bun";
+
+dotenv.config({ path: "../.env" });
 
 /**
  * Open a psql connection using .env credentials
@@ -17,14 +19,16 @@ function createConnection() {
     let port = process.env.PG_PORT;
     let db = process.env.PG_DATABASE;
 
-    return postgres(`postgrsql://${user}:${pass}@${host}:${port}/${db}`);
+    return new SQL({
+        url: `postgres://${user}:${pass}@${host}:${port}/${db}`,
+    });
 }
 
 /**
  * Get array of posts from db
  * @returns All posts from db
  */
-async function getPosts() {
+export async function getPosts() {
     const sql = createConnection();
     return await sql`select * from Posts`;
 }
@@ -34,7 +38,7 @@ async function getPosts() {
  * @param {object} data HTTP POST request data
  * @returns True/False depending on upload success
  */
-async function submitPost(data) {
+export async function submitPost(data) {
     if (!data.title || !data.body) {
         return false;
     }
@@ -44,8 +48,6 @@ async function submitPost(data) {
     }
 
     const sql = createConnection();
-    await sql`insert into Posts (title, body) values (${data.title}, ${data.body})`;
+    await sql`insert into Posts ${sql(data)}`;
     return true;
 }
-
-module.exports = { getPosts, submitPost };

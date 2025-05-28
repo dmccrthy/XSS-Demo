@@ -1,17 +1,15 @@
 {
-  "name": "xss-demo-main",
+  "name": "xss-demo-attacker",
   "version": "1.0.0",
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "start": "bun --hot server.js"
+    "start": ""
   },
   "author": "Dan McCarthy",
   "license": "MIT",
-  "description": "Main website for testing XSS and SQL injects",
+  "description": "",
   "dependencies": {
-    "body-parser": "^1.20.3",
-    "dotenv": "^16.4.7",
     "ejs": "^3.1.10",
     "express": "^4.21.2"
   }

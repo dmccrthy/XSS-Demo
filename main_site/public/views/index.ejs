@@ -1,24 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Tweeter</title>
+        <title>Site</title>
         <meta charset="utf-8" />
         <link rel="stylesheet" href="../css/style.css" />
         <link rel="icon" href="../images/favicon.svg" />
     </head>
     <body>
         <nav>
-            <a class="logo" href="/">
-                <img src="../images/tweeter.png" />
-                Tweeter
-            </a>
+            <a class="logo" href="/"> </a>
             <button id="account-button" class="button">Account</button>
             <div id="account-overlay" class="hidden">hi</div>
         </nav>
         <form class="create-post" method="post" action="./upload">
-            <% if (notice) { %>
-            <div class="notice">Hello</div>
-            <% } %>
             <h2>Create Post:</h2>
             <input
                 placeholder="Title"

@@ -24,7 +24,7 @@ PG_DATABASE=db // DB to use
 After setting that up you can run:
 
 ```shell
-npm run start
+bun start
 ```
 
 ## Production*:
