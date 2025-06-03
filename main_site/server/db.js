@@ -30,7 +30,7 @@ function createConnection() {
  */
 export async function getPosts() {
     const sql = createConnection();
-    return await sql`select * from Posts`;
+    return await sql`select * from posts`;
 }
 
 /**

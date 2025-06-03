@@ -3,7 +3,7 @@
     --black: #1e1e1e;
     --white: #ffffff;
     --off-white: #eceff1;
-    --blue: #1DA1F2;
+    --blue: #1da1f2;
     --dark-blue: #026fb3;
 }
 
@@ -57,7 +57,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--blue);
+    /* background: var(--blue); */
 }
 
 /* Heading Bar */
@@ -93,7 +93,6 @@ nav {
 
 /* Sidebar */
 .sidebar {
-
 }
 
 .button {
@@ -122,7 +121,7 @@ nav {
     margin-bottom: 15px;
     border-bottom: 1px solid var(--black);
 
-    input[type=text],
+    input[type="text"],
     textarea {
         border: 1px solid var(--black);
         border-radius: 10px;
