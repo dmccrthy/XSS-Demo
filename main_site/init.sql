@@ -1,23 +1,24 @@
-CREATE DATABASE 'name';
+CREATE DATABASE db;
 
-CREATE TABLE products (
-    id INTEGER,
-    name VARCHAR(),
-    description VARCHAR(),
-    price 
-    image VARCHAR()
+CREATE TABLE Products (
+    product_id INTEGER,
+    name VARCHAR(100),
+    description VARCHAR(255),
+    price ,
 )
 
-CREATE TABLE reviews (
+CREATE TABLE Reviews (
     title VARCHAR(100),
     body VARCHAR(255),
-    score INTEGER,
-    author INTEGER
+    rating INTEGER,
+    timestamp ...,
+    user_id INTEGER
 );
 
-CREATE TABLE users {
-    id INTEGER,
+CREATE TABLE Users (
+    user_id INTEGER,
     username VARCHAR(32),
+    email VARCHAR(255),
     password_hash VARCHAR(),
     password_salt VARCHAR()
-}
+)
