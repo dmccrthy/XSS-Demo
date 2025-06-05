@@ -8,8 +8,6 @@ export default function router(app) {
     app.get("/", async (req, res) => {
         let error = req.query.error;
 
-        console.log(error);
-
         try {
             const posts = await db.getPosts();
             console.log(posts);

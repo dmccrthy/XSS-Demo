@@ -25,29 +25,7 @@ function createConnection() {
 }
 
 /**
- * Get array of posts from db
- * @returns All posts from db
+ * Initiliaze the psql database if necessary
+ * This cover creating necessary tables and loading placeholder data.
  */
-export async function getPosts() {
-    const sql = createConnection();
-    return await sql`select * from posts`;
-}
-
-/**
- * Upload post to site
- * @param {object} data HTTP POST request data
- * @returns True/False depending on upload success
- */
-export async function submitPost(data) {
-    if (!data.title || !data.body) {
-        return false;
-    }
-
-    if (data.title.length > 100 || data.body.length > 255) {
-        return false;
-    }
-
-    const sql = createConnection();
-    await sql`insert into Posts ${sql(data)}`;
-    return true;
-}
+function databaseInitialize() {}
