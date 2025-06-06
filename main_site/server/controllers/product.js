@@ -5,23 +5,32 @@
  * related to products in our database
  */
 
+import { sql } from "../db";
+
 /**
- * Get array of posts from db
- * @returns All posts from db
+ * Get array of products from db
+ * @returns All products from db
  */
 export async function getProducts() {
-    const sql = createConnection();
-    return await sql`select * from posts`;
+    return await sql`select * from products`;
 }
 
 /**
- * Get array of posts from db
+ * Get specific product from db
+ * @param {Number} product Product_id to retreive
+ * @reurns Product data with given id
+ */
+export async function getProductByID(product) {
+    return sql`SELECT * FROM products WHERE product_id = ${product}`;
+}
+
+/**
+ * Get array of reviews from db
  * @param {Number} product Product_id of current product
- * @returns All posts from db
+ * @returns All reviews from db
  */
 export async function getReviews(product) {
-    const sql = createConnection();
-    return await sql`select * from posts`;
+    return sql`SELECT * FROM reviews WHERE product_id = ${product}`;
 }
 
 /**
@@ -38,7 +47,6 @@ export async function submitReview(data) {
         return false;
     }
 
-    const sql = createConnection();
-    await sql`insert into Reviews ${sql(data)}`;
+    await sql`INSERT INTO reviews ${sql(data)}`;
     return true;
 }

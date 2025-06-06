@@ -8,3 +8,9 @@ let hash2 = await argon2.hash("hi");
 
 console.log(hash1);
 console.log(hash2);
+
+function verifyPassword() {}
+
+function issueJWT() {}
+
+function verifyJWT() {}

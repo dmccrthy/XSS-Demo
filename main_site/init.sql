@@ -8,17 +8,18 @@ CREATE TABLE Products (
 )
 
 CREATE TABLE Reviews (
+    review_id INTEGER,
     title VARCHAR(100),
     body VARCHAR(255),
     rating INTEGER,
     post_date TIMESTAMP,
-    user_id INTEGER
+    user_id INTEGER,
+    product_id INTEGER
 );
 
 CREATE TABLE Users (
     user_id INTEGER,
     username VARCHAR(32),
     email VARCHAR(255),
-    password_hash VARCHAR(100),
-    password_salt VARCHAR()
+    password_hash VARCHAR(100)
 )

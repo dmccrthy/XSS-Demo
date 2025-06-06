@@ -3,16 +3,12 @@
     <head>
         <title>Site</title>
         <meta charset="utf-8" />
-        <link rel="stylesheet" href="../css/style.css" />
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
         <!-- <link rel="icon" href="../images/favicon.svg" /> -->
     </head>
     <body>
-        <!-- <nav>
-            <a class="logo" href="/"> </a>
-            <button id="account-button" class="button">Account</button>
-            <div id="account-overlay" class="hidden">hi</div>
-        </nav>
-        <form class="create-post" method="post" action="./upload">
+        <%- include('../components/navbar.ejs') %>
+        <!-- <form class="create-post" method="post" action="./upload">
             <h2>Create Post:</h2>
             <input
                 placeholder="Title"
@@ -23,19 +19,22 @@
             />
             <textarea placeholder="Body" name="body" required></textarea>
             <input class="button" type="submit" value="Submit" />
-        </form>
+        </form> -->
 
         <main>
-            <% messages.forEach((message) => { %>
-            <div class="post">
-                <h2><%- message.title %></h2>
-                <p><%- message.body %></p>
+            <% products.forEach((product) => { %>
+            <div class="flex w-192 gap-4 mx-auto">
+                <div class="w-48 bg-[#f1f1f1] p-4 rounded">
+                    <span class="flex font-bold">
+                        <h2><%- product.name %></h2>
+                        <h3>- $<%- product.price %></h3>
+                    </span>
+                    <p><%- product.description %></p>
+                </div>
+                <% }); %>
             </div>
-            <% }); %>
-        </main> -->
-        <nav></nav>
-        <main></main>
-        <footer></footer>
+        </main>
+        <%- include('../components/footer.ejs') %>
         <script src="./js/main.js"></script>
     </body>
 </html>
