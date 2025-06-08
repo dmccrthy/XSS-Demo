@@ -21,6 +21,17 @@ export default function router(app) {
         }
     });
 
+    app.get("/search", async (req, res) => {
+        try {
+            const data = await products.getProducts();
+            console.log(data);
+
+            res.render("index", { products: data });
+        } catch (err) {
+            res.status(500).send({ message: "Failed to Get Products: " + err });
+        }
+    });
+
     /**
      * Product Routes
      */

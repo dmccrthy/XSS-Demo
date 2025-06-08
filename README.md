@@ -5,12 +5,12 @@ This repo was developed to demo a handful of different web based attacks. It was
 
 ## Develop:
 
-If you want to have some control over the containers
+To create the main database you can run the following command. You can change the user, password, and db variables as needed. Additionally the init.sql script is automatically copied to the image and run so demo data should already be loaded.
 
 ```shell
-docker run --name xss_demo -p 5432:5432 -e POSTGRES_PASSWORD=1234 -e POSTGRES_USER=admin -d postgres
+docker run --name xss_demo -p 5432:5432 -e POSTGRES_PASSWORD=1234 -e POSTGRES_USER=admin -e POSTGRES_DB=main -v init.sql:/docker-entrypoint-initdb.d/init.sql -d postgres
 ```
-Then you should setup a .env file in the root of the project. Make sure to use the user/password you set on the container. It should look something like this:
+From here you should setup a .env file in the root of the project. Make sure to use the user/password/db you set on the container. It should look something like this:
 
 ```shell
 PORT=9090 // Main site
@@ -24,7 +24,7 @@ PG_DATABASE=db // DB to use
 After setting that up you can run:
 
 ```shell
-bun start
+bun run start 
 ```
 
 ## Production*:

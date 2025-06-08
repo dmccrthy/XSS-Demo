@@ -1,3 +1,10 @@
-<footer class="w-screen flex justify-center">
-    <h3>&copy; <%- new Date().getFullYear() %></h3>
+<footer class="w-screen px-24 flex items-center bg-[#fafafa] drop-shadow-sm">
+    <h3 class="ml-8 mr-auto font-bold">
+        &copy; <%- new Date().getFullYear() %> EasyCart, Inc.
+    </h3>
+    <div class="flex gap-4 mr-8 [&>*]:w-6 [&>*]:cursor-pointer">
+        <%- include ("../images/icons/linkedin.svg") %> <%- include
+        ("../images/icons/youtube.svg") %> <%-
+        include("../images/icons/soundcloud.svg") %>
+    </div>
 </footer>
