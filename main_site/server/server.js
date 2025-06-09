@@ -17,6 +17,7 @@ app.set("view engine", "ejs");
 app.set("views", "./public/views");
 app.use(express.static("./public"));
 app.use(bodyParser.urlencoded({ extended: true }));
+app.disable("x-powered-by");
 
 // Setup routes
 router(app);
